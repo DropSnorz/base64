@@ -1,9 +1,12 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+
 
 export default class Encoder extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { encodeSwitch: true, source: "", output: "" };
+    this.state = { encodeSwitch: true, output: "" };
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -17,11 +20,17 @@ export default class Encoder extends React.Component {
 
   render() {
     return (
-      <div>
-        <textarea onChange={this.handleChange} rows="5" col="23"></textarea>
-        <button type="button">Encode</button>
-        <button type="button">Decode</button>
-        <textarea value={this.state.output} rows="5" col="23"></textarea>
+      <div class="row">
+        <div class="col-6">
+          <div class="float-right">
+            <Button variant={this.state.encodeSwitch ? "primary" : "outline-primary"} onClick={() => this.setState({encodeSwitch: true})}>Encode</Button>
+            <Button variant={!this.state.encodeSwitch ? "primary" : "outline-primary"} onClick={() => this.setState({encodeSwitch: false})}>Decode</Button>
+          </div>
+          <Form.Control as="textarea" rows={3} onChange={this.handleChange}/>
+        </div>
+        <div class="col-6">
+          <Form.Control as="textarea" rows={3} value={this.state.output}/>
+        </div>
       </div>
     );
   }
