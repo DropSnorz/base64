@@ -1,16 +1,15 @@
-import Encoder from './Encoder'
-import Navbar from 'react-bootstrap/Navbar';
+import Header from './components/Header'
+import Encoder from './components/Encoder'
+import Footer from './components/Footer'
 
 function App() {
   return (
     <div className="App">
-      <Navbar bg="dark" variant="dark" expand="lg">
-        <Navbar.Brand href="#home">Base64</Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      </Navbar>
+      <Header />
       <div class="container">
         <Encoder />
       </div>
+      <Footer />
     </div>
   );
 }
